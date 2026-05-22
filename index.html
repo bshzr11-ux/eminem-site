@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta name="robots" content="noindex, nofollow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Story ❤️</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    #password-screen{
+      position:fixed;
+      width:100%;
+      height:100vh;
+      background:linear-gradient(to bottom,#ffd6e7,#fff0f5);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
+      flex-direction:column;
+      text-align:center;
+      padding:20px;
+    }
+
+    #password-screen input{
+      padding:15px;
+      border:none;
+      border-radius:15px;
+      margin-top:20px;
+      width:260px;
+      font-size:1rem;
+      text-align:center;
+    }
+
+    #password-screen button{
+      margin-top:15px;
+      padding:12px 30px;
+      border:none;
+      border-radius:30px;
+      background:#ff7eb3;
+      color:white;
+      cursor:pointer;
+      font-size:1rem;
+    }
+
+    #main-site{
+      display:none;
+    }
+
+    body{
+      background: linear-gradient(to bottom,#ffd6e7,#fff0f5);
+      overflow-x:hidden;
+      color:#5b2c42;
+    }
+
+    body::before{
+      content:'';
+      position:fixed;
+      width:100%;
+      height:100%;
+      background:radial-gradient(circle at top,#ffffff55,transparent 40%);
+      pointer-events:none;
+      z-index:-2;
+    }
+
+    .intro-animation{
+      position:fixed;
+      inset:0;
+      background:linear-gradient(to bottom,#ffb6d5,#fff0f5);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+      z-index:8888;
+      animation:fadeOutIntro 2s ease forwards;
+      animation-delay:3s;
+    }
+
+    .intro-animation h1{
+      font-size:4rem;
+      color:#fff;
+      animation:zoomText 2s ease infinite alternate;
+      text-shadow:0 0 25px rgba(255,255,255,0.8);
+    }
+
+    .intro-animation p{
+      margin-top:20px;
+      font-size:1.2rem;
+      color:white;
+      letter-spacing:3px;
+    }
+
+    @keyframes fadeOutIntro{
+      to{
+        opacity:0;
+        visibility:hidden;
+      }
+    }
+
+    @keyframes zoomText{
+      from{
+        transform:scale(1);
+      }
+      to{
+        transform:scale(1.08);
+      }
+    }
+
+    .hero{
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:20px;
+      position:relative;
+    }
+
+    .hero h1{
+      font-size:4rem;
+      margin-bottom:20px;
+      animation: fadeIn 2s ease;
+    }
+
+    .hero p{
+      font-size:1.3rem;
+      max-width:700px;
+      line-height:1.7;
+      animation: fadeIn 3s ease;
+    }
+
+    .scroll-btn{
+      margin-top:40px;
+      padding:15px 35px;
+      border:none;
+      border-radius:40px;
+      background:#ff7eb3;
+      color:white;
+      font-size:1rem;
+      cursor:pointer;
+      transition:0.3s;
+      box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .scroll-btn:hover{
+      transform:scale(1.05);
+      background:#ff5c9a;
+    }
+
+    .section{
+      padding:100px 10%;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:3rem;
+      margin-bottom:50px;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .gallery img{
+      cursor:pointer;
+      width:100%;
+      height:320px;
+      object-fit:cover;
+      border-radius:25px;
+      transition:0.4s;
+      position:relative;
+      z-index:1;
+      box-shadow:0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .gallery img:hover{
+      transform:translateY(-10px) scale(1.02);
+    }
+
+    .gallery img.active{
+      position:fixed;
+      top:50%;
+      left:50%;
+      transform:translate(-50%,-50%) scale(1.5);
+      z-index:999;
+      width:60%;
+      height:auto;
+      max-height:80vh;
+      border-radius:30px;
+    }
+
+    .love-box{
+      background:white;
+      border-radius:30px;
+      padding:40px;
+      line-height:2;
+      font-size:1.2rem;
+      box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .counter{
+      text-align:center;
+      font-size:2rem;
+      margin-top:30px;
+      font-weight:bold;
+    }
+
+    .music{
+      text-align:center;
+      margin-top:50px;
+    }
+
+    .letter{
+      background:#fff;
+      padding:50px;
+      border-radius:30px;
+      line-height:2;
+      font-size:1.2rem;
+      box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    footer{
+      text-align:center;
+      padding:40px;
+      font-size:1rem;
+    }
+
+    .heart{
+      position:fixed;
+      color:#ff5c9a;
+      animation:float 6s linear infinite;
+      opacity:0.6;
+      z-index:-1;
+    }
+
+    @keyframes float{
+      from{
+        transform:translateY(100vh) scale(0);
+      }
+      to{
+        transform:translateY(-10vh) scale(1);
+      }
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(30px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @media(max-width:768px){
+
+      .hero{
+        padding:20px;
+      }
+
+      .hero p{
+        font-size:1rem;
+      }
+
+      .gallery{
+        grid-template-columns:1fr;
+      }
+
+      .gallery img{
+        height:260px;
+        border-radius:22px;
+      }
+
+      .love-box,
+      .letter{
+        padding:25px;
+        font-size:1rem;
+        border-radius:25px;
+      }
+
+      .scroll-btn{
+        width:90%;
+        font-size:1rem;
+      }
+
+      iframe{
+        height:180px;
+      }
+
+      .gallery img.active{
+        width:92%;
+      }
+
+      .intro-animation h1{
+        font-size:2.5rem;
+      }
+
+      .intro-animation p{
+        font-size:1rem;
+      }
+
+      .section{
+        padding:70px 7%;
+      }
+
+      .counter{
+        font-size:1.4rem;
+        line-height:1.5;
+      }
+
+      body{
+        overflow-x:hidden;
+      }
+    }
+
+    @media(max-width:768px){
+      .hero h1{
+        font-size:2.7rem;
+      }
+
+      .section-title{
+        font-size:2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="intro-animation">
+  <h1>Emine ❤️</h1>
+  <p>Our Story Begins...</p>
+</div>
+
+<div id="password-screen">
+  <h1>Only For Emine ❤️</h1>
+  <p>Bizim özel dünyamıza hoş geldin ✨</p>
+
+  <input type="password" id="passwordInput" placeholder="Şifreyi Gir">
+  <button onclick="checkPassword()">Siteye Gir</button>
+</div>
+
+<div id="main-site">
+
+  <div class="hero">
+
+<audio id="bgMusic" loop>
+  <source src="muzik.mp3" type="audio/mp3">
+</audio>
+    <h1 id="typing"></h1>
+
+    <p>
+      İyi ki doğdun hayatım.
+      Hayatıma geldiğin günden beri her şey daha güzel, daha anlamlı.
+      Seninle geçen her an benim için dünyanın en güzel hatırası.
+    </p>
+
+    <button class="scroll-btn" onclick="document.getElementById('gallery').scrollIntoView()">
+      Our Memories ✨
+    </button>
+  </div>
+
+  <section class="section" id="gallery">
+    <h2 class="section-title">Seninle Her An Güzel 💖</h2>
+
+    <div class="gallery">
+      <img src="foto1.jpg" alt="fotoğraf 1">
+      <img src="foto2.jpg">
+      <img src="foto3.jpg">
+      <img src="foto4.jpg">
+      <img src="foto5.jpg">
+      <img src="foto6.jpg">
+      <img src="foto7.jpg">
+      <img src="foto8.jpg">
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Neden Seni Seviyorum?</h2>
+
+    <div class="love-box">
+      ❤️ Çünkü senin yanında kendim gibi hissediyorum.<br>
+      ❤️ Çünkü gülüşün bütün günümü güzelleştiriyor.<br>
+      ❤️ Çünkü seninle sıradan anlar bile özel oluyor.<br>
+      ❤️ Çünkü sen benim en güzel tesadüfümsün.<br>
+      ❤️ Çünkü iyi ki varsın Eminem.
+    </div>
+
+    <div class="counter" id="counter"></div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Bizim Şarkımız 🎵</h2>
+
+    <div class="music">
+
+      <iframe style="border-radius:20px"
+      src="https://open.spotify.com/embed/track/4u7EnebtmKWzUH433cf5Qv?utm_source=generator"
+      width="100%"
+      height="152"
+      frameBorder="0"
+      allowfullscreen=""
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy"></iframe>
+
+      <p style="margin-top:20px; font-size:1.2rem;">
+        Nilüfer - Yalnızlığımla Başbaşa ✨
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Sana Bir Mektubum Var 💌</h2>
+
+    <div class="letter">
+      Hayatım,
+      <br><br>
+      Belki bazen kelimeler yetmiyor ama bilmeni istediğim tek şey;
+      senin benim için gerçekten çok özel olduğun.
+      
+      Seninle konuşmak, gülmek, zaman geçirmek…
+      bunların hepsi hayatımın en güzel parçaları oldu.
+      
+      İyi ki doğdun,
+      iyi ki hayatımdasın,
+      iyi ki “biz” olduk.
+      
+      Umarım birlikte daha yaşayacağımız çok güzel anımız olur.
+      Seni çok seviyorum ❤️
+    </div>
+  </section>
+
+  <footer>
+    Made with love for Emine 💖
+  </footer>
+
+  <script>
+
+    const startDate = new Date("2026-03-05T01:30:00");
+    const today = new Date();
+
+    const diffTime = today - startDate;
+    const days = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+    document.getElementById("counter").innerHTML =
+      days + " gündür birlikte güzel anılar biriktiriyoruz ❤️";
+
+
+    function createHeart(){
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '❤';
+
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = Math.random() * 20 + 15 + 'px';
+      heart.style.animationDuration = Math.random() * 3 + 4 + 's';
+
+      document.body.appendChild(heart);
+
+      setTimeout(()=>{
+        heart.remove();
+      },6000);
+    }
+
+    setInterval(createHeart,300);
+
+  </script>
+
+</div>
+
+  <script>
+
+    const text = 'Our Story ❤️';
+    let index = 0;
+
+    function typeEffect(){
+      if(index < text.length){
+        document.getElementById('typing').innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeEffect,120);
+      }
+    }
+
+    typeEffect();
+
+    function checkPassword(){
+      const password = document.getElementById('passwordInput').value;
+
+      if(password === 'emine0503'){
+        document.getElementById('password-screen').style.display='none';
+        document.getElementById('main-site').style.display='block';
+
+        document.getElementById('bgMusic').play();
+      }
+      else{
+        alert('Yanlış şifre ❤️');
+      }
+    }
+
+    const images = document.querySelectorAll('.gallery img');
+
+    images.forEach(img => {
+      img.addEventListener('click',()=>{
+        img.classList.toggle('active');
+      });
+    });
+
+  </script>
+
+</body>
+</html>
