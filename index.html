@@ -443,7 +443,35 @@
       Seni çok seviyorum ❤️
     </div>
   </section>
+  <section class="section">
+  <h2 class="section-title">
+    💌 Bugün Sana Söylemek İstediğim Bir Şey Var
+  </h2>
 
+  <div class="love-box" style="text-align:center;">
+
+    <img
+      id="dailyPhoto"
+      src=""
+      alt="Bugünün Fotoğrafı"
+      style="
+      width:100%;
+      max-width:450px;
+      border-radius:25px;
+      margin-bottom:25px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.15);
+      ">
+
+    <p
+      id="dailyMessage"
+      style="
+      font-size:1.2rem;
+      line-height:1.9;
+      ">
+    </p>
+
+  </div>
+  </section>
   <footer>
     Made with love for Emine 💖
   </footer>
@@ -477,6 +505,129 @@
     }
 
     setInterval(createHeart,300);
+
+    const dailyMessages = [
+/* BURAYA SENİN TÜM MESAJLARIN GELECEK */
+"Seninle tanıştığım gün hayatımın yönü değişti. O günün ne kadar değerli olduğunu her geçen gün daha iyi anlıyorum. ❤️",
+
+"Bazen seni ne kadar sevdiğimi anlatacak doğru kelimeyi bulamıyorum. Sanırım bazı duygular kelimelerden daha büyük.",
+
+"Bu mesajı okuduğun an nerede olursan ol, bil ki seni düşünen biri var. Hem de çok. 🌸",
+
+"Hayatımda birçok güzel şey oldu ama senin hayatıma girdiğin gün hepsinden daha güzel.",
+
+"Gülüşünü ilk gördüğüm günü unutamıyorum. Çünkü bazı anlar insanın hafızasına değil kalbine yazılıyor.",
+
+"Seninle geçen sıradan bir gün bile, sensiz geçen en güzel günden daha değerli.",
+
+"Bazen sadece yanımda olman bile bütün günümü güzelleştirmeye yetiyor.",
+
+"Seninle konuşurken zamanın nasıl geçtiğini anlamıyorum. Sanırım mutluluk böyle bir şey.",
+
+"Canım annem, Benim için üzülme. Kısacık ömrümde sevildiğimi hissettim, sıcaklığını hissettim. Bana verdiğin her sevgi için teşekkür ederim. Ben gittim ama sevgim hep seninle.",
+
+"Hayatımın en güzel tesadüfünün sen olduğunu düşünmeden bir gün geçirmiyorum.",
+
+"İyi ki varsın demek bazen yetersiz kalıyor. İyi ki hayatımdasın demek istiyorum.",
+
+"Senin yanında kendimin en mutlu haline dönüşüyorum.",
+
+"Yaptığın her yemeği afiyetle yedim ve hepsi çok güzeldi, eline sağlık her seyim.",
+
+"Birlikte geçirdiğimiz zamanlar anı olmuyor, hayatımın en değerli parçaları oluyor.",
+
+"Ne zaman canım sıkılsa seni düşünmek iyi geliyor.",
+
+"Benim için dünyanın en güvenli yeri bazen sadece senin yanın.",
+
+"Sherlock Holmes bizim yanımızda bir hiç himse.",
+
+"Bir günlüğüne değil, bir ömürlük seviyorum seni.",
+
+"Bugün de seni ilk günkü heyecanla seviyorum.",
+
+"Bu fotoğrafa bakınca o kuğa baktın dimi seni çok seviyorum.",
+
+"Seninle ilgili en sevdiğim şeylerden biri, bana huzur vermen.",
+
+"Belki mükemmel değiliz ama birlikteyken çok güzeliz. ❤️",
+
+"Hayat bana bir hediye vermiş olsaydı, yine seni seçerdim.",
+
+"Seninle aynı dönemde yaşamış olmak bile bana şans gibi geliyor.",
+
+"23 mart o günü unutamam, uzun süre sarılışımız çok tatlıydı sevgilim.",
+
+"İçimi en çok ısıtan şeylerden biri senin varlığın.",
+
+"Sen benim en güzel alışkanlığımsın.",
+
+"Bugün seni özlediysem şaşırma. Bu artık günlük rutinim oldu.",
+
+"Birbirimize en çok benzettiğim fotoğrafımız, BİZ ÇOK YAKIŞIYORUZ.",
+
+"Sana bakınca geleceğe dair umut hissediyorum.",
+
+"Seninle geçen her gün, gelecekte özlemle hatırlayacağım bir anı oluyor.", 
+
+"İnsan bazen birine bakınca eve dönmüş gibi hissedermiş. Bunu seninle öğrendim. ❤️", 
+
+"Seninle konuşurken kendimi anlatmaya çalışmıyorum, kendim olabiliyorum. Bu his çok değerli.",
+
+"Bazen hiçbir sebep yokken aklıma geliyorsun ve çok mutlu oluyorum.",
+
+"Seninle ilgili en sevdiğim şeylerden biri de farkında olmadan günümü güzelleştirmen.", 
+
+"İyi günlerimi güzelleştiren, kötü günlerimi kolaylaştıran kişisin.",
+
+"Bugün de senin için minnettarım.",
+
+"Yanında sessizce oturmak bile benim için güzel bir anı oluyor.",
+
+"Sana anlatamadığım kadar çok değer veriyorum.",
+
+"Bu mesajı okuduğun an yanında olamasam da, yüzünü güldürebildiysem günüm güzel geçecek.",
+
+"Senin mutluluğunu görmek beni de mutlu ediyor.", 
+
+"Birlikte güldüğümüz anlar aklıma geldikçe yüzüm gülüyor.",
+
+"Kalbimin evi sensin. ❤️",
+
+"Bugün de iyi ki sen dedim.",
+
+"Umarım bu mesajı okurken yüzünde küçük de olsa bir gülümseme oluşur seni çok seviyorum her şeyim.",
+
+"Sen benim en güzel yarınımsın.",
+
+"Geleceği düşününce korkmuyorum çünkü sen varsın.",
+
+"Bu dünyada en çok görmek istediğim şeylerden biri senin mutlu olman.",
+
+"Ne olursa olsun, hayatıma geldiğin için teşekkür ederim.",
+
+"Seninle geçirdiğim zamanın uzunluğu değil, hissettirdikleri önemli. Ve bana hep çok güzel şeyler hissettiriyorsun. ❤️"
+];
+
+const startDateMessages = new Date("2026-06-18T00:00:00");
+const todayMessages = new Date();
+
+const diffTimeMessages =
+todayMessages - startDateMessages;
+
+const diffDaysMessages =
+Math.floor(diffTimeMessages / (1000 * 60 * 60 * 24));
+
+const dailyIndex =
+((diffDaysMessages % dailyMessages.length)
++ dailyMessages.length)
+% dailyMessages.length;
+
+document.getElementById("dailyMessage").innerText =
+dailyMessages[dailyIndex];
+
+document.getElementById("dailyPhoto").src =
+`gun${dailyIndex + 1}.jpg`;
 
   </script>
 
